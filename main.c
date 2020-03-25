@@ -3,7 +3,7 @@
 
 int main()
 {
-  struct stack* st = new_stack();
+  Stack* st = new_stack();
 
   int i;
   for (i=0; i<=10; i++)

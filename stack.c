@@ -1,14 +1,4 @@
-#include <stdlib.h>
-#include <stdio.h>
 #include "stack.h"
-
-// Structure defining a stack
-typedef struct
-{
-  int elements[100];
-  int top;
-  int size;
-} Stack;
 
 // Creating and initializing a new stack
 Stack* new_stack()
