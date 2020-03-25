@@ -4,7 +4,7 @@
 // Structure defining a stack
 typedef struct
 {
-  int elements[100];
+  char elements[100];
   int top;
   int size;
 } Stack;
@@ -13,13 +13,13 @@ typedef struct
 Stack* new_stack();
 
 // Push the element i on the stack st
-void push(Stack* st, int i);
+void push(Stack* st, char i);
 
 // Pop the top element from the stack st
-int pop(Stack* st);
+char pop(Stack* st);
 
 // Access the top element of stack st
-int top(Stack* st);
+char top(Stack* st);
 
 // Returns the size of stack st
 int size(Stack* st);

@@ -10,7 +10,7 @@ Stack* new_stack()
 }
 
 // Push the element i on the stack st
-void push(Stack* st, int i)
+void push(Stack* st, char i)
 {
   st->top++;
   st->size++;
@@ -18,7 +18,7 @@ void push(Stack* st, int i)
 }
 
 // Pop the top element from the stack
-int pop(Stack* st)
+char pop(Stack* st)
 {
   int element = top(st);
   st->top--;
@@ -27,7 +27,7 @@ int pop(Stack* st)
 }
 
 // Access the top element of stack st
-int top(Stack* st)
+char top(Stack* st)
 {
   if(is_empty(st))
   {
