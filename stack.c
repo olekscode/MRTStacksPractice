@@ -3,24 +3,24 @@
 #include "stack.h"
 
 // Structure defining a stack
-struct stack
+typedef struct
 {
   int elements[100];
   int top;
   int size;
-};
+} Stack;
 
 // Creating and initializing a new stack
-struct stack* new_stack()
+Stack* new_stack()
 {
-  struct stack* st = (struct stack*) malloc(sizeof(struct stack));
+  Stack* st = (Stack*) malloc(sizeof(Stack));
   st->top = -1;
   st->size = 0;
   return st;
 }
 
 // Push the element i on the stack st
-void push(struct stack* st, int i)
+void push(Stack* st, int i)
 {
   st->top++;
   st->size++;
@@ -28,7 +28,7 @@ void push(struct stack* st, int i)
 }
 
 // Pop the top element from the stack
-int pop(struct stack* st)
+int pop(Stack* st)
 {
   int element = top(st);
   st->top--;
@@ -37,7 +37,7 @@ int pop(struct stack* st)
 }
 
 // Access the top element of stack st
-int top(struct stack* st)
+int top(Stack* st)
 {
   if(is_empty(st))
   {
@@ -48,48 +48,22 @@ int top(struct stack* st)
 }
 
 // Returns the size of stack st
-int size(struct stack* st)
+int size(Stack* st)
 {
   return st->size;
 }
 
 // Checks if the stack st is empty
-int is_empty(struct stack* st)
+int is_empty(Stack* st)
 {
   return size(st) == 0;
 }
 
 // Removes all elements from the stack st
-void empty(struct stack* st)
+void empty(Stack* st)
 {
   while(!is_empty(st))
   {
     pop(st);
   }
-}
-
-int main()
-{
-  struct stack* st = new_stack();
-
-  int i;
-  for (i=0; i<=10; i++)
-  {
-    push(st, i);
-  }
-
-  int size_stack = size(st);
-  int top_stack = top(st);
-
-  printf("Top stack = %d\n", top_stack);
-  printf("Size stack = %d\n", size_stack);
-
-  while(!is_empty(st))
-  {
-    int element = pop(st);
-    printf("Pop: %d\n", element);
-  }
-
-  printf("Is stack empty? %d\n", is_empty(st));
-
 }
