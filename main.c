@@ -2,29 +2,27 @@
 #include "stack.h"
 #include <string.h>
 
-int main()
+void reverse(char* str, char* other_str)
 {
-  char* cs = "Hello World";
+  Stack* characters = new_stack();
 
-  Stack* st = new_stack();
-
-  int i;
-  for (i = 0; i < strlen(cs); ++i)
-{
-    push(st, cs[i]);
-}
-
-  int size_stack = size(st);
-  char top_stack = top(st);
-
-  printf("Top stack = %c\n", top_stack);
-  printf("Size stack = %d\n", size_stack);
-
-  while(!is_empty(st))
+  for (int i = 0; i < strlen(str); ++i)
   {
-    char element = pop(st);
-    printf("Pop: %c\n", element);
+    push(characters, str[i]);
   }
 
-  printf("Is stack empty? %d\n", is_empty(st));
+  for (int i = 0; i < strlen(str); ++i) {
+    other_str[i] = pop(characters);
+  }
+}
+
+int main()
+{
+  char* sentence = "Hello, world!";
+  char* reversed;
+
+  reverse(sentence, reversed);
+
+  printf("%s\n", sentence);
+  printf("%s\n", reversed);
 }
